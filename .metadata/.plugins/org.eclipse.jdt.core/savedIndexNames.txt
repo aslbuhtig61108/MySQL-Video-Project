@@ -1,0 +1,3 @@
+INDEX VERSION 1.131+C:\Users\nilat\Desktop\Promineo\Week7-MySQL\Recipes Video Project\.metadata\.plugins\org.eclipse.jdt.core
+3516700666.index
+1865797976.index
