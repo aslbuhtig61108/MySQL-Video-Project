@@ -75,7 +75,7 @@ public class Recipes {
 		for (Recipe recipe : recipes) {
 			if (recipe.getRecipeId().equals(recipeId)) {
 				curRecipe = recipeService.fetchRecipeById(recipeId);
-				break;
+				// break;  Per Stephanie B., suggests deleting
 			}
 		}
 		
@@ -153,12 +153,6 @@ public class Recipes {
 		System.out.println("Here's what you can do:");
 		
 		operations.forEach(op -> System.out.println("   " + op));
-		
-		if (Objects.isNull(curRecipe)) {
-			System.out.println("\nYou are not working with a recipe.");
-		} else {
-			System.out.println("\nYou are working with recipe " + curRecipe);
-		}
 	}
 
 	private Integer getIntInput(String prompt) {

@@ -227,8 +227,8 @@
             <children xsi:type="basic:PartSashContainer" xmi:id="_ItT_GCNVEe2cFpa6PDumUA" containerData="8667" selectedElement="_ItT_GSNVEe2cFpa6PDumUA">
               <children xsi:type="basic:PartSashContainer" xmi:id="_ItT_GSNVEe2cFpa6PDumUA" containerData="7455" selectedElement="_jb3bcCqfEe2E9JNWNgmQLA" horizontal="true">
                 <children xsi:type="basic:PartSashContainer" xmi:id="_jb3bcCqfEe2E9JNWNgmQLA" containerData="5000" selectedElement="_ItT_GiNVEe2cFpa6PDumUA">
-                  <children xsi:type="advanced:Placeholder" xmi:id="_ItT_GiNVEe2cFpa6PDumUA" elementId="org.eclipse.ui.editorss" containerData="5016" ref="_1zWQoCD9Ee2UA96QcFV1wQ"/>
-                  <children xsi:type="basic:PartStack" xmi:id="_YIgQ0SqfEe2E9JNWNgmQLA" elementId="PartStack@3b9f2dd3" containerData="4984" selectedElement="_ItT_JCNVEe2cFpa6PDumUA">
+                  <children xsi:type="advanced:Placeholder" xmi:id="_ItT_GiNVEe2cFpa6PDumUA" elementId="org.eclipse.ui.editorss" containerData="3754" ref="_1zWQoCD9Ee2UA96QcFV1wQ"/>
+                  <children xsi:type="basic:PartStack" xmi:id="_YIgQ0SqfEe2E9JNWNgmQLA" elementId="PartStack@3b9f2dd3" containerData="6246" selectedElement="_ItT_JCNVEe2cFpa6PDumUA">
                     <children xsi:type="advanced:Placeholder" xmi:id="_ItT_JCNVEe2cFpa6PDumUA" elementId="org.eclipse.ui.console.ConsoleView" ref="_1zbwMiD9Ee2UA96QcFV1wQ" closeable="true">
                       <tags>View</tags>
                       <tags>categoryTag:General</tags>
@@ -351,7 +351,7 @@
         <tags>EditorStack</tags>
         <tags>active</tags>
         <children xsi:type="basic:Part" xmi:id="_HANWICWcEe2bP6ojLhS_jQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="Recipes.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;Recipes.java&quot; partName=&quot;Recipes.java&quot; title=&quot;Recipes.java&quot; tooltip=&quot;mysql-java-recipes/src/main/java/recipes/Recipes.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/mysql-java-recipes/src/main/java/recipes/Recipes.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;1737&quot; selectionTopPixel=&quot;999&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;Recipes.java&quot; partName=&quot;Recipes.java&quot; title=&quot;Recipes.java&quot; tooltip=&quot;mysql-java-recipes/src/main/java/recipes/Recipes.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/mysql-java-recipes/src/main/java/recipes/Recipes.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;612&quot; selectionTopPixel=&quot;1&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>removeOnHide</tags>
           <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
@@ -365,7 +365,7 @@
           <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_q_-nwCqMEe2E9JNWNgmQLA" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="RecipeDao.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;RecipeDao.java&quot; partName=&quot;RecipeDao.java&quot; title=&quot;RecipeDao.java&quot; tooltip=&quot;mysql-java-recipes/src/main/java/recipes/dao/RecipeDao.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/mysql-java-recipes/src/main/java/recipes/dao/RecipeDao.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;15&quot; selectionOffset=&quot;4084&quot; selectionTopPixel=&quot;1836&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;RecipeDao.java&quot; partName=&quot;RecipeDao.java&quot; title=&quot;RecipeDao.java&quot; tooltip=&quot;mysql-java-recipes/src/main/java/recipes/dao/RecipeDao.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/mysql-java-recipes/src/main/java/recipes/dao/RecipeDao.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;15&quot; selectionOffset=&quot;4084&quot; selectionTopPixel=&quot;1896&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>removeOnHide</tags>
           <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
@@ -613,7 +613,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_1uPHICD9Ee2UA96QcFV1wQ" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_B7iSMCsJEe28n5k4lOyC0w" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_1j3qiSD9Ee2UA96QcFV1wQ"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_pinbACsSEe2FR_fY6uyoPw" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_1j3qiSD9Ee2UA96QcFV1wQ"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_1uPHISD9Ee2UA96QcFV1wQ" elementId="group.edit" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -644,7 +644,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_1uPHKCD9Ee2UA96QcFV1wQ" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_B7kHYSsJEe28n5k4lOyC0w" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_1j3DYCD9Ee2UA96QcFV1wQ"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_pipQMCsSEe2FR_fY6uyoPw" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_1j3DYCD9Ee2UA96QcFV1wQ"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_1uPHKSD9Ee2UA96QcFV1wQ" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -2430,7 +2430,7 @@
   <addons xmi:id="_1ji6JiD9Ee2UA96QcFV1wQ" elementId="MinMax Addon" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.MinMaxAddon"/>
   <addons xmi:id="_1ji6JyD9Ee2UA96QcFV1wQ" elementId="org.eclipse.ui.workbench.addon.0" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
   <addons xmi:id="_1joZoCD9Ee2UA96QcFV1wQ" elementId="SplitterAddon" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.splitteraddon.SplitterAddon"/>
-  <addons xmi:id="_Bz6AMCsJEe28n5k4lOyC0w" elementId="org.eclipse.ui.ide.addon.0" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
+  <addons xmi:id="_papx0CsSEe2FR_fY6uyoPw" elementId="org.eclipse.ui.ide.addon.0" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
   <addons xmi:id="_dz0JgGOlEeSMMaPQU2nlzw" elementId="org.eclipse.ui.ide.application.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.ui.ide.application/org.eclipse.ui.internal.ide.application.addons.ModelCleanupAddon"/>
   <categories xmi:id="_1jzYwCD9Ee2UA96QcFV1wQ" elementId="org.eclipse.ui.category.views" name="Views" description="Commands for opening views"/>
   <categories xmi:id="_1jzYwSD9Ee2UA96QcFV1wQ" elementId="org.eclipse.team.ui.category.team" name="Version control (Team)" description="Actions that apply when working with a version control system"/>
