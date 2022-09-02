@@ -1,0 +1,13 @@
+package recipes.entity;
+
+import java.time.LocalTime;
+
+public class Recipe {
+	private Integer recipeId;
+	private String recipeName;
+	private String notes;
+	private Integer numServings;
+	private LocalTime prepTime;
+	private LocalTime cookTime;
+	private LocalDateTime createdAt;
+}
