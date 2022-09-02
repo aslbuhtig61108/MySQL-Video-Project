@@ -1,26 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value=""/>
+		<item key="selection" value="addRecipe"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="addRecipe"/>
+			<item value="fetchRecipes"/>
+			<item value="fetchAllRecipes"/>
+			<item value="unit_id"/>
+			<item value="commit"/>
+			<item value="getIngredient"/>
+			<item value="2"/>
+			<item value="=2"/>
 			<item value="sql"/>
 			<item value="intore"/>
 			<item value="intorecipe"/>
-			<item value="into"/>
-			<item value="unitid"/>
-			<item value="readfilecontent"/>
-			<item value="op"/>
-			<item value="lines"/>
-			<item value="line"/>
-			<item value="connection"/>
-			<item value="project"/>
-			<item value="recipe"/>
-			<item value="batch"/>
 		</list>
 		<list key="replacehistory">
 		</list>

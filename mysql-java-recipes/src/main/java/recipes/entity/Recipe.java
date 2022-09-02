@@ -107,8 +107,8 @@ public class Recipe {
 		this.createdAt = createdAt;
 	}
 
-	public List<Ingredient> getIngredient() {
-		return getIngredient();
+	public List<Ingredient> getIngredients() {
+		return ingredients;
 	}
 
 	public List<Step> getSteps() {

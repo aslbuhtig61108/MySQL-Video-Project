@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <typeInfoHistroy>
-    <typeInfo handle="=mysql-java-recipes/D:\/Program Files\/Java\/jdk-11.0.15\/lib\/jrt-fs.jar`java.base=/javadoc_location=/https:\/\/docs.oracle.com\/en\/java\/javase\/11\/docs\/api\/=/=/module=/true=/=/maven.pomderived=/true=/&lt;java.lang(RuntimeException.class[RuntimeException" modifiers="33" timestamp="1654325822712"/>
+    <typeInfo handle="=mysql-java-recipes/D:\/Program Files\/Java\/jdk-11.0.15\/lib\/jrt-fs.jar`java.base=/javadoc_location=/https:\/\/docs.oracle.com\/en\/java\/javase\/11\/docs\/api\/=/=/maven.pomderived=/true=/&lt;java.lang(RuntimeException.class[RuntimeException" modifiers="33" timestamp="1654325822712"/>
     <typeInfo handle="=mysql-java-recipes/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;provided.util{DaoBase.java[DaoBase" modifiers="1025" timestamp="1661646685662"/>
 </typeInfoHistroy>
