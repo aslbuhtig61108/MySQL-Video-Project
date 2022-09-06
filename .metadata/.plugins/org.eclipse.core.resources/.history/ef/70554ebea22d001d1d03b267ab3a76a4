@@ -19,8 +19,8 @@ public class Recipes {
 	
 		"1) Create and populate all tables",
 		"2) Add a recipe",
-		"3) List recipes"
-//		"4) Select working recipe"
+		"3) List recipes",
+		"4) Select working recipe"
 	);
 	// @formatter:on
 	public static void main(String[] args) {
