@@ -84,21 +84,11 @@ public class Recipes {
 		}
 	}
 
-	private List<Recipe> listRecipes() {
-		List<Recipe> recipes = recipeService.fetchRecipes();
-		
-		System.out.println("\nRecipes:");
-		
-		// I decided to use the for loop suggested by Dr. Martin from the video
-		// for loop may be causing errors. Commenting out and following Dr. Martin's original lambda expression
-//		for (Recipe recipe : recipes) {
-//			System.out.println("    " + recipe.getRecipeId() + ": " + recipe.getRecipeName());
-//		}
-		recipes.forEach(recipe -> System.out.println("    " + recipe.getRecipeId() + ": " + recipe.getRecipeName()));
-		
-		return recipes;
+	private void createTables() {
+		recipeService.createAndPopulateTables();
+		System.out.println("\nTables created and populated!");
 	}
-
+	
 	private void addRecipe() {
 		String name = getStringInput("Enter the recipe name");
 		String notes = getStringInput("Enter recipe notes");
@@ -120,20 +110,30 @@ public class Recipes {
 		Recipe dbRecipe = recipeService.addRecipe(recipe);
 		System.out.println("You added this recipe:\n" + dbRecipe);
 		
-		curRecipe = recipeService.fetchRecipeById(dbRecipe.getRecipeId());
+//		curRecipe = recipeService.fetchRecipeById(dbRecipe.getRecipeId());
 	}
 
+	private void listRecipes() {
+		List<Recipe> recipes = recipeService.fetchAllRecipes();
+		
+		System.out.println("\nRecipes:");
+		
+//		// I decided to use the for loop suggested by Dr. Martin from the video
+//		// for loop may be causing errors. Commenting out and following Dr. Martin's original lambda expression
+////		for (Recipe recipe : recipes) {
+////			System.out.println("    " + recipe.getRecipeId() + ": " + recipe.getRecipeName());
+////		}
+		recipes.forEach(recipe -> System.out.println("    " + recipe.getRecipeId() + ": " + recipe.getRecipeName()));
+		
+//		return recipes;
+	}
+	
 	private LocalTime minutesToLocalTime(Integer numMinutes) {
 		int min = Objects.isNull(numMinutes) ? 0 : numMinutes;
 		int hours = min / 60;
 		int minutes = min % 60;
 		
 		return LocalTime.of(hours, minutes);
-	}
-
-	private void createTables() {
-		recipeService.createAndPopulateTables();
-		System.out.println("\nTables created and populated!");
 	}
 
 	private boolean exitMenu() {
@@ -154,11 +154,11 @@ public class Recipes {
 		
 		operations.forEach(op -> System.out.println("   " + op));
 		
-		if (Objects.isNull(curRecipe)) {
-			System.out.println("\nYou are not working with a recipe.");
-		} else {
-			System.out.println("\nYou are working with recipe " + curRecipe);
-		}
+//		if (Objects.isNull(curRecipe)) {
+//			System.out.println("\nYou are not working with a recipe.");
+//		} else {
+//			System.out.println("\nYou are working with recipe " + curRecipe);
+//		}
 	}
 
 	private Integer getIntInput(String prompt) {
