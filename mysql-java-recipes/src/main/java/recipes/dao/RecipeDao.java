@@ -28,6 +28,41 @@ public class RecipeDao extends DaoBase {
 	private static final String STEP_TABLE = "step";
 	private static final String UNIT_TABLE = "unit";
 
+	public Optional<Recipe> fetchRecipeById(Integer recipeId) {
+	String sql = "SELECT * FROM " + RECIPE_TABLE + " WHERE recipe_id =?";
+
+	try (Connection conn = DbConnection.getConnection()) {
+		startTransaction(conn);
+
+		try {
+			Recipe recipe = null;
+
+			try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+				setParameter(stmt, 1, recipeId, Integer.class);
+
+				try (ResultSet rs = stmt.executeQuery()) {
+					if (rs.next()) {  // we're only retrieving one row
+						recipe = extract(rs, Recipe.class);
+					}
+				}
+			}
+			if (Objects.nonNull(recipe)) {
+				recipe.getIngredients().addAll(fetchRecipeIngredients(conn, recipeId));
+				recipe.getSteps().addAll(fetchRecipeSteps(conn, recipeId));
+				recipe.getCategories().addAll(fetchRecipeCategories(conn, recipeId));
+			}
+			
+			return Optional.ofNullable(recipe);
+
+		} catch (Exception e) {
+			rollbackTransaction(conn);
+			throw new DbException(e);
+		}
+	} catch (SQLException e) {
+		throw new DbException(e);
+	}
+}
+	
 	public List<Recipe> fetchAllRecipes() {
 		String sql = "SELECT * FROM " + RECIPE_TABLE + " ORDER BY recipe_name";
 
@@ -53,108 +88,74 @@ public class RecipeDao extends DaoBase {
 			throw new DbException(e);
 		}
 	}
-//	public Optional<Recipe> fetchRecipeById(Integer recipeId) {
-//		String sql = "SELECT * FROM " + RECIPE_TABLE + " WHERE recipe_id =?";
-//
-//		try (Connection conn = DbConnection.getConnection()) {
-//			startTransaction(conn);
-//
-//			try {
-//				Recipe recipe = null;
-//
-//				try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-//					setParameter(stmt, 1, recipeId, Integer.class);
-//
-//					try (ResultSet rs = stmt.executeQuery()) {
-//						if (rs.next()) {
-//							recipe = extract(rs, Recipe.class);
-//						}
-//					}
-//				}
-//				if (Objects.nonNull(recipe)) {
-//					recipe.getIngredients().addAll(fetchRecipeIngredients(conn, recipeId));
-//
-//					recipe.getSteps().addAll(fetchRecipeSteps(conn, recipeId));
-//					recipe.getCategories().addAll(fetchRecipeCategories(conn, recipeId));
-//				}
-//				
-//				return Optional.ofNullable(recipe);
-//			} catch (Exception e) {
-//				rollbackTransaction(conn);
-//				throw new DbException(e);
-//			}
-//		} catch (SQLException e) {
-//			throw new DbException(e);
-//		}
-//	}
 
-//	private List<Category> fetchRecipeCategories(Connection conn, Integer recipeId) throws SQLException {
-//		// @formatter:off
-//		String sql = ""
-//				+ "SELECT c.* "
-//				+ "FROM " + RECIPE_CATEGORY_TABLE + " rc "
-//				+ "JOIN " + CATEGORY_TABLE + " c USING (category_id) "
-//				+ "WHERE recipe_id = ? "
-//				+ "ORDER BY c.category_name";
-//		//@formatter:on
-//		
-//		try(PreparedStatement stmt = conn.prepareStatement(sql)) {
-//			setParameter(stmt, 1, recipeId, Integer.class);
-//			
-//			try (ResultSet rs = stmt.executeQuery()) {
-//				List<Category> categories = new LinkedList<Category>();
-//				
-//				while(rs.next()) {
-//					categories.add(extract(rs, Category.class));
-//				}
-//				return categories;
-//			}
-//		}
-//	}
+	private List<Ingredient> fetchRecipeIngredients(Connection conn, Integer recipeId) throws SQLException {
+		// @formatter: off
+		String sql = "" + "SELECT i.*, u.unit_name_singular, u.unit_name_plural " + "FROM " + INGREDIENT_TABLE + " i "
+			+ "LEFT JOIN " + UNIT_TABLE + " u USING (unit_id) " + " WHERE recipe_id = ? "
+			+ "ORDER BY i.ingredient_order";
+		// @formatter: on
 
-//	private List<Step> fetchRecipeSteps(Connection conn, Integer recipeId) throws SQLException {
-//		String sql = "SELECT * FROM " + STEP_TABLE + " s WHERE s.recipe_id = ?";
-//
-//		try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-//			setParameter(stmt, 1, recipeId, Integer.class);
-//
-//			try (ResultSet rs = stmt.executeQuery()) {
-//				List<Step> steps = new LinkedList<Step>();
-//
-//				while (rs.next()) {
-//					steps.add(extract(rs, Step.class));
-//				}
-//				return steps;
-//			}
-//		}
-//	}
+		try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+			setParameter(stmt, 1, recipeId, Integer.class);
 
-//	private List<Ingredient> fetchRecipeIngredients(Connection conn, Integer recipeId) throws SQLException {
-//		// @formatter: off
-//		String sql = "" + "SELECT i.*, u.unit_name_singular, u.unit_name_plural " + "FROM " + INGREDIENT_TABLE + " i "
-//				+ "LEFT JOIN " + UNIT_TABLE + " u USING (unit_id) " + " WHERE recipe_id = ? "
-//				+ "ORDER BY i.ingredient_order";
-//		// @formatter: on
-//
-//		try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-//			setParameter(stmt, 1, recipeId, Integer.class);
-//
-//			try (ResultSet rs = stmt.executeQuery()) {
-//				List<Ingredient> ingredients = new LinkedList<Ingredient>();
-//
-//				while (rs.next()) {
-//					Ingredient ingredient = extract(rs, Ingredient.class);
-//					Unit unit = extract(rs, Unit.class);
-//
-//					ingredient.setUnitId(unit);
-//					ingredients.add(ingredient);
-//				}
-//
-//				return ingredients;
-//
-//			}
-//		}
-//	}
+			try (ResultSet rs = stmt.executeQuery()) {
+				List<Ingredient> ingredients = new LinkedList<Ingredient>();
+
+				while (rs.next()) {
+					Ingredient ingredient = extract(rs, Ingredient.class);
+					Unit unit = extract(rs, Unit.class);
+					
+					// Adds unit to the ingredient and then the ingredient to the list
+					ingredient.setUnitId(unit);
+					ingredients.add(ingredient);
+				}
+
+				return ingredients;
+			}
+		}
+	}
+
+	private List<Step> fetchRecipeSteps(Connection conn, Integer recipeId) throws SQLException {
+	String sql = "SELECT * FROM " + STEP_TABLE + " s WHERE s.recipe_id = ?";
+
+		try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+			setParameter(stmt, 1, recipeId, Integer.class);
+
+			try (ResultSet rs = stmt.executeQuery()) {
+				List<Step> steps = new LinkedList<Step>();
+
+				while (rs.next()) {
+					steps.add(extract(rs, Step.class));
+				}
+				return steps;
+			}
+		}
+	}
+
+		private List<Category> fetchRecipeCategories(Connection conn, Integer recipeId) throws SQLException {
+		// @formatter:off
+		String sql = ""
+				+ "SELECT c.* "
+				+ "FROM " + RECIPE_CATEGORY_TABLE + " rc "
+				+ "JOIN " + CATEGORY_TABLE + " c USING (category_id) "
+				+ "WHERE recipe_id = ? "
+				+ "ORDER BY c.category_name";
+		//@formatter:on
+		
+		try(PreparedStatement stmt = conn.prepareStatement(sql)) {
+			setParameter(stmt, 1, recipeId, Integer.class);
+			
+			try (ResultSet rs = stmt.executeQuery()) {
+				List<Category> categories = new LinkedList<Category>();
+				
+				while(rs.next()) {
+					categories.add(extract(rs, Category.class));
+				}
+				return categories;
+			}
+		}
+	}
 
 	public Recipe insertRecipe(Recipe recipe) {
 		// @formatter : off

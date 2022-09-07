@@ -17,10 +17,10 @@ public class RecipeService {
 
 	private RecipeDao recipeDao = new RecipeDao();
 
-//	public Recipe fetchRecipeById(Integer recipeId) {
-//		return recipeDao.fetchRecipeById(recipeId)
-//				.orElseThrow(() -> new NoSuchElementException("Recipe with ID=" + recipeId + " does not exist."));
-//	}
+	public Recipe fetchRecipeById(Integer recipeId) {
+		return recipeDao.fetchRecipeById(recipeId)
+				.orElseThrow(() -> new NoSuchElementException("Recipe with ID=" + recipeId + " does not exist."));
+	}
 
 	public void createAndPopulateTables() {
 		loadFromFile(SCHEMA_FILE);
