@@ -16,12 +16,12 @@
     <fullyQualifiedTypeName name="java.time.format.DateTimeFormatter"/>
     <fullyQualifiedTypeName name="java.sql.Connection"/>
     <fullyQualifiedTypeName name="java.time.LocalTime"/>
-    <fullyQualifiedTypeName name="java.lang.Exception"/>
-    <fullyQualifiedTypeName name="recipes.dao.DbConnection"/>
-    <fullyQualifiedTypeName name="recipes.exception.DbException"/>
     <fullyQualifiedTypeName name="java.util.Objects"/>
     <fullyQualifiedTypeName name="recipes.entity.Unit"/>
-    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
     <fullyQualifiedTypeName name="java.util.LinkedList"/>
     <fullyQualifiedTypeName name="java.util.NoSuchElementException"/>
+    <fullyQualifiedTypeName name="recipes.dao.DbConnection"/>
+    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+    <fullyQualifiedTypeName name="java.lang.Exception"/>
+    <fullyQualifiedTypeName name="recipes.exception.DbException"/>
 </qualifiedTypeNameHistroy>

@@ -41,10 +41,14 @@ public class Recipe {
 			recipe += "\n      " + ingredient;
 		}
 
+		recipe += "\n   Steps:";
+		
 		for (Step step : steps) {
 			recipe += "\n      " + step;
 		}
 
+		recipe += "\n   Categories";
+		
 		for (Category category : categories) {
 			recipe += "\n      " + category;
 		}
