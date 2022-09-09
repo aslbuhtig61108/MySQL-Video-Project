@@ -22,14 +22,15 @@ public class Recipes {
 	// @formatter:off
 	private List<String> operations = List.of(
 	
-		"1) Create and populate all tables",
+		"1) Create and populate all tables",        // Demonstrates the CREATE function of CRUD
 		"2) Add a recipe",
-		"3) List recipes",
+		"3) List recipes",        					// Demonstrates the READ function of CRUD
 		"4) Select working recipe",
 		"5) Add ingredient to current recipe",
 		"6) Add step to current recipe",
 		"7) Add category to current recipe",
-		"8) Modify step in current recipe" 
+		"8) Modify step in current recipe",        // Demonstrates the UPDATE function of CRUD
+		"9) Delete recipe"        				   // Demonstrates the DELETE function of CRUD
 	);
 	// @formatter:on
 	public static void main(String[] args) {
@@ -80,6 +81,12 @@ public class Recipes {
 					modifyStepInCurrentRecipe();
 					break;
 					
+				case 9:
+					deleteRecipe();
+					break;
+					
+					// W11 05 The Delete Statement @ts 11:23 / 12:38 Continue from this time stamp (ts)
+					
 				default:
 					System.out.println("\n" + operation + " is not valid. Try again.");
 					break;
@@ -90,6 +97,21 @@ public class Recipes {
 		}
 	}
 			
+	private void deleteRecipe() {
+		listRecipes();
+		
+		Integer recipeId = getIntInput("Enter the ID of the recipe to delete");
+		
+		if (Objects.nonNull(recipeId)) {
+			recipeService.deleteRecipe(recipeId);
+			
+			if(Objects.nonNull(curRecipe) && curRecipe.getRecipeId().equals(recipeId)) {
+				curRecipe = null;
+				
+			}
+		}
+	}
+
 	private void modifyStepInCurrentRecipe() {
 		if (Objects.isNull(curRecipe)) {
 			System.out.println("\nPlease select a recipe.");
@@ -242,7 +264,7 @@ public class Recipes {
 	}
 
 	private List<Recipe> listRecipes() {
-		List<Recipe> recipes = recipeService.fetchAllRecipes();
+		List<Recipe> recipes = recipeService.fetchRecipes();
 		
 		System.out.println("\nRecipes:");
 		

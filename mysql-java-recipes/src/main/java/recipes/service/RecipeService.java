@@ -6,6 +6,7 @@ import java.nio.file.Paths;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.stream.Collectors;
 
 import recipes.dao.RecipeDao;
 import recipes.entity.Category;
@@ -104,8 +105,13 @@ public class RecipeService {
 		return recipeDao.insertRecipe(recipe);
 	}
 
-	public List<Recipe> fetchAllRecipes() {
-		return recipeDao.fetchAllRecipes();
+	public List<Recipe> fetchRecipes() {
+		// @formatter:off
+		return recipeDao.fetchAllRecipes()
+				.stream()
+				.sorted((r1, r2) -> r1.getRecipeId() - r2.getRecipeId())
+				.collect(Collectors.toList());
+		// @formatter:on
 	}
 
 	public List<Unit> fetchUnits() {
@@ -137,5 +143,12 @@ public class RecipeService {
 		if (!recipeDao.modifyRecipeStep(step)) {
 			throw new DbException("Step with ID=" + step.getStepId() + " does not exist.");
 		}
+	}
+
+	public void deleteRecipe(Integer recipeId) {
+		if(!recipeDao.deleteRecipe(recipeId)) {
+			throw new DbException("Recipe with ID=" + recipeId + " does not exist.");
+		}
+		
 	}
 }
